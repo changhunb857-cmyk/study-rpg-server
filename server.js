@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // ✅ MongoDB 연결
-mongoose.connect("여기에_너_MongoDB_URL", {
+mongoose.connect("mongodb+srv://changhunb857_db_user:chang0922@cluster0.gft8xfv.mongodb.net/rpg", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
