@@ -59,22 +59,9 @@ app.post("/signup", async (req, res) => {
 });
 
 // ---------------- 로그인 ----------------
-app.post("/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: "유저 없음" });
-
-    const ok = await bcrypt.compare(password, user.password);
-    if (!ok) return res.status(400).json({ message: "비밀번호 틀림" });
-
-    const token = jwt.sign({ id: user._id }, SECRET);
-
-    res.json({ token });
-  } catch {
-    res.status(500).json({ message: "서버 오류" });
-  }
+app.get("/load", async (req, res) => {
+  const data = await Data.findOne();
+  res.json(data || {});
 });
 
 // ---------------- 인증 미들웨어 ----------------
