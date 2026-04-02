@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // ✅ MongoDB 연결
-mongoose.connect("mongodb+srv://changhunb857_db_user:chang0922@cluster0.gft8xfv.mongodb.net/rpg", {
+mongoose.connect("mongodb+srv://changhunb857_db_user:chang0922@cluster0.gft8xfv.mongodb.net/rpg?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
